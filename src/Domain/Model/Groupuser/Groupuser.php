@@ -2,8 +2,13 @@
 
 namespace App\Domain\Model\Groupuser;
 
+use App\Domain\Model\Group\Group;
+use App\Domain\Model\User\User;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -18,19 +23,38 @@ class Groupuser {
      */
     private $id;
     /**
-     *
      * @ORM\Column(type="integer", length=11)
-     * @ORM\ManyToOne(targetEntity="App\Domain\Model\Group\Group", inversedBy="groupusers")
      * @Assert\NotBlank()
      *
      */
     private $groupid;
     /**
      * @ORM\Column(type="integer", length=11)
-     * @ORM\ManyToOne(targetEntity="App\Domain\Model\User\User", inversedBy="groupusers")
      * @Assert\NotBlank()
      */
     private $userid;
+
+    /**
+     * @var
+     * @ORM\ManyToMany(targetEntity="App\Domain\Model\Group\Group", inversedBy="groupusers")
+     * @JoinColumn(name="groupid", referencedColumnName="id")
+     *
+     */
+    private $groups;
+
+    /**
+     * @var
+     * @ORM\ManyToMany(targetEntity="App\Domain\Model\User\User", inversedBy="groupusers")
+     * @JoinColumn(name="userid", referencedColumnName="id")
+     */
+    private $users;
+
+    public function __construct()
+    {
+        $this->groups = new ArrayCollection();
+        $this->users = new ArrayCollection();
+    }
+
 
     /**
      * @return int
@@ -80,14 +104,13 @@ class Groupuser {
         $this->userid = $userid;
     }
 
-    public function getGroup(): ?Group
+    public function getGroup()
     {
-        return $this->groupid;
+        return $this->groups;
     }
 
-    public function getUser(): ?User
+    public function getUser()
     {
-        return $this->userid;
+        return $this->users;
     }
-
 }
