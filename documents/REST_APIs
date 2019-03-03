@@ -1,0 +1,33 @@
+1.	http://localhost:8000/api/group
+	Method: POST
+	{"groupname": "admin"}
+	[Vaidation: at least 5 character long. no space. no duplicate]
+
+2.	http://localhost:8000/api/group
+	Method: DELETE
+	{"groupid": "4"}
+	[Vaidation: if user associated with this group then not delete]
+
+
+3.	http://localhost:8000/api/user
+	Method: POST
+	{"username": "dhirajatra"}
+	[Vaidation: at least 5 character long. no space. no duplicate]
+
+4.	http://localhost:8000/api/user
+	Method: DELETE
+	{"userid": "1"}
+	[Vaidation: if user associated with a group that record also be delete]
+
+5.	http://localhost:8000/api/groupuser  [assigning to group]
+	Method: POST
+	{"userid": "1", "groupid": "5"}
+	[Validation: user and group must exist. association must not be duplicated.]
+
+6.	http://localhost:8000/api/groupuser  [deassigning from group]
+	Method: DELETE
+	{"userid": "1", "groupid": "5"}
+	[Validation: user and group must exist.]
+
+
+
