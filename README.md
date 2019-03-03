@@ -1,7 +1,7 @@
 ## User management system
 ###   This application Stories
 
-There are many improvement possible in this application. As this has been created in a very tight time.
+There are always many improvement possible in this application. As this has been created in a very tight time.
 That's why all types of tests and validation was not possible to implement.
 But I have tried to create a perfect Symfony 4.2 and high quality structure for the application which can be extended. As it is based on SOLID principal.
 
@@ -22,15 +22,15 @@ But I have tried to create a perfect Symfony 4.2 and high quality structure for 
 ### How to install and run
 
 1. clone this repository
-2. Install and configure Symfony 4
-3. Run composer install
+2. cd to your clone directory
+3. Run: composer install
 4. Run symfony server by: ./bin/console server:run
 5. Check as per the direction from above command output
 6. You can use sql to create your database from documents folder. Also can use migration script to create database.
 
 ### How to run tests
 
-1. You need to install phpunit and bridge
+1. You need to install phpunit
 2. Update userid and/or groupid with appropriate values from your DB
 3. To tests all 3 files run following commands:
 
