@@ -2,10 +2,8 @@
 
 namespace App\Usermanagement\Repository;
 
-use App\Domain\Model\Group\Group;
 use App\Domain\Model\Groupuser\Groupuser;
 use App\Domain\Model\Groupuser\GroupuserRepositoryInterface;
-use App\Domain\Model\User\User;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Cache\Persister\Collection;

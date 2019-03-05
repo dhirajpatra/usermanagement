@@ -2,10 +2,8 @@
 /.env.local
 /.env.local.php
 /.env.*.local
-<<<<<<< HEAD
 /.idea
-=======
->>>>>>> e5ace3e7d2fbb6a272d3b4280776b7ab18222bfd
+
 /public/bundles/
 /var/
 /vendor/
