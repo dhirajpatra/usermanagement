@@ -1,0 +1,7 @@
+#web_controller:
+#    resource: ../../src/Usermanagement/Controller/Web/
+#    type: annotation
+rest_controller:
+    resource: ../../src/Usermanagement/Controller/Rest/
+    type: annotation
+    prefix: /api
