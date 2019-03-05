@@ -31,7 +31,11 @@ But I have tried to create a perfect Symfony 4.2 and high quality structure for 
 ### How to run tests
 
 1. You need to install phpunit
+<<<<<<< HEAD
 2. Update userid and/or groupid with appropriate values from your DB [if no value then create from APIs]
+=======
+2. Update userid and/or groupid with appropriate values from your DB
+>>>>>>> e5ace3e7d2fbb6a272d3b4280776b7ab18222bfd
 3. To tests all 3 files run following commands:
 
 [change this value as per your DB] eg. private $id = 37;

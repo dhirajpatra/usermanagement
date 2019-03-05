@@ -25,6 +25,7 @@ class GroupuserService
     private $userRepository;
 
     private $groupRepository;
+
     /**
      * GroupuserService constructor.
      * @param GroupuserRepositoryInterface $groupuserRepository
@@ -147,6 +148,7 @@ class GroupuserService
                 } catch(\Exception $e) {
                     throw new BadCredentialsException('Groupuser not save');
                 }
+
 
             }else{
                 throw new BadCredentialsException('Duplicate group user');

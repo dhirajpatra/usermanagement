@@ -10,9 +10,6 @@ use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Cache\Persister\Collection;
 use Doctrine\ORM\AbstractQuery;
-use Doctrine\ORM\Query\Expr\Join;
-use App\Usermanagement\Repository\GroupRepository;
-use App\Usermanagement\Repository\UserRepository;
 
 /**
  * Class GroupuserRepository
@@ -136,50 +133,6 @@ final class GroupuserRepository implements GroupuserRepositoryInterface
         } catch(\Doctrine\ORM\ORMException $e) {
             return $e->getMessage();
         }
-
-        if($result){
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @param int $groupId [this need to implement]
-     * @return bool
-     */
-    public function getGroup(int $groupId) : bool
-    {
-
-        $result = $this->queryBuilder->select('u.id, g.id')
-            ->from(Groupuser::class, 'u')
-            ->innerJoin(Group::class, 'g', 'u.groupid = g.id')
-            ->where('u.groupid = :groupid')
-            ->setParameter('groupid', $groupId)
-            ->getQuery()
-            ->getResult(AbstractQuery::HYDRATE_ARRAY);
-
-        if($result){
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * user exist or not [this need to implement]
-     * @param int $userId
-     * @return bool
-     */
-    public function getUser(int $userId) : bool
-    {
-        $result = $this->queryBuilder->select('g.id')
-            ->from(Groupuser::class, 'g')
-            ->innerJoin('g.userid', 'u', 'WITH', 'u.id = :userid')
-            ->where('g.userid = :userid')
-            ->setParameter('userid', $userId)
-            ->getQuery()
-            ->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         if($result){
             return true;

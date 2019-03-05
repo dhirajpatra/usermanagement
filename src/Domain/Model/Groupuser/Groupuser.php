@@ -35,7 +35,6 @@ class Groupuser {
      */
     private $userid;
 
-
     /**
      * @return int
      */
@@ -84,5 +83,5 @@ class Groupuser {
         $this->userid = $userid;
     }
 
-
 }
+
