@@ -30,7 +30,7 @@ But I have tried to create a perfect Symfony 4.2 and high quality structure for 
 
 ### How to run tests
 
-1. You need to install phpunit
+1. You need to install lib curl & phpunit. While testing server should be running.
 2. Update userid and/or groupid with appropriate values from your DB [if no value then create from APIs]
 3. To tests all 3 files run following commands:
 
