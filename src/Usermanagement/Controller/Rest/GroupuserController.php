@@ -6,13 +6,12 @@ use App\Domain\Model\Groupuser\Groupuser;
 use App\Application\Service\GroupuserService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
-class GroupuserController extends FOSRestController
+class GroupuserController extends AbstractFOSRestController
 {
     /**
      * @var
