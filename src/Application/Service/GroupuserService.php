@@ -4,9 +4,7 @@ namespace App\Application\Service;
 
 use App\Domain\Model\Groupuser\Groupuser;
 use App\Domain\Model\Groupuser\GroupuserRepositoryInterface;
-use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\ORM\EntityNotFoundException;
-use JMS\Serializer\Exception\Exception;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use App\Usermanagement\Repository\GroupRepository;
 use App\Usermanagement\Repository\UserRepository;
@@ -137,7 +135,7 @@ class GroupuserService
         // checking if group and user exist
         $user = $this->userRepository->findById($userId);
         $group = $this->groupRepository->findById($groupId);
-
+        
         if($group != NULL && $user != NULL) {
             $result = $this->groupuserRepository->duplicateCheck($userId, $groupId);
 

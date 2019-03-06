@@ -30,7 +30,7 @@ class GroupController extends FOSRestController
      * @param Request $request
      * @return JsonResponse
      */
-    public function addAction(Request $request) : JsonResponse
+    public function add(Request $request) : JsonResponse
     {
 
         $result = '';
@@ -53,7 +53,7 @@ class GroupController extends FOSRestController
      * @return JsonResponse
      * @throws \Doctrine\ORM\EntityNotFoundException
      */
-    public function deleteAction(Request $request) : JsonResponse
+    public function delete(Request $request) : JsonResponse
     {
 
         $result = '';
