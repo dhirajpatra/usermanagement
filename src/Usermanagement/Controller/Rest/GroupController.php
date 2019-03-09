@@ -33,12 +33,16 @@ class GroupController extends AbstractFOSRestController
     {
 
         $result = '';
-        $group = new Group();
-        $group->setGroupname($request->get('groupname'));
-        $group->setStatus(1);
-        $result = $this->groupService->saveGroup($group);
+        if ($request->request->has('groupname')) {
+            $group = new Group();
+            $group->setGroupname($request->get('groupname'));
+            $group->setStatus(1);
+            $result = $this->groupService->saveGroup($group);
+        } else {
+            throw new \InvalidArgumentException('Bad request required parameters not found.');
+        }
 
-        if($result) {
+        if($result != '') {
             return new JsonResponse("Group created", Response::HTTP_OK);
         } else {
             return new JsonResponse("Group not created", Response::HTTP_BAD_REQUEST);
@@ -56,9 +60,13 @@ class GroupController extends AbstractFOSRestController
     {
 
         $result = '';
-        $result = $this->groupService->deleteGroup($request->get('groupid'));
+        if ($request->request->has('groupid')) {
+            $result = $this->groupService->deleteGroup($request->get('groupid'));
+        } else {
+            throw new \InvalidArgumentException('Bad request required parameters not found.');
+        }
 
-        if($result) {
+        if($result != '') {
             return new JsonResponse("Group deleted", Response::HTTP_OK);
         } else {
             return new JsonResponse("Group not deleted", Response::HTTP_BAD_REQUEST);

@@ -105,32 +105,6 @@ class User {
     /**
      * @return Collection
      */
-    public function getGroupuser(): Collection
-    {
-        return $this->groupuser;
-    }
 
-    public function addGroupuser(Groupuser $groupuser): self
-    {
-        if (!$this->groupuser->contains($groupuser)) {
-            $this->groupuser[] = $groupuser;
-            $groupuser->setGroups($this);
-        }
-
-        return $this;
-    }
-
-    public function removeGroupuser(Groupuser $groupuser): self
-    {
-        if ($this->groupuser->contains($groupuser)) {
-            $this->groupuser->removeElement($groupuser);
-            // set the owning side to null (unless already changed)
-            if ($groupuser->getGroups() === $this) {
-                $groupuser->setGroups(null);
-            }
-        }
-
-        return $this;
-    }
 
 }

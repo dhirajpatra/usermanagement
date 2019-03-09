@@ -33,14 +33,18 @@ class GroupuserController extends AbstractFOSRestController
     {
 
         $result = '';
-        $groupuser = new Groupuser();
-        $groupuser->setGroupid($request->get('groupid'));
-        $groupuser->setUserid($request->get('userid'));
+        if ($request->request->has('userid') && $request->request->has('groupid')) {
+            $groupuser = new Groupuser();
+            $groupuser->setGroupid($request->get('groupid'));
+            $groupuser->setUserid($request->get('userid'));
 
-        $result = $this->groupuserService->saveGroupuser($request->get('userid'), $request->get('groupid'), $groupuser);
+            $result = $this->groupuserService->saveGroupuser($request->get('userid'), $request->get('groupid'), $groupuser);
+        } else {
+            throw new \InvalidArgumentException('Bad request required parameters not found.');
+        }
 
 
-        if($result) {
+        if($result != '') {
             return new JsonResponse("Groupuser created", Response::HTTP_OK);
         } else {
             return new JsonResponse("Groupuser not created", Response::HTTP_BAD_REQUEST);
@@ -56,13 +60,15 @@ class GroupuserController extends AbstractFOSRestController
      */
     public function delete(Request $request) : JsonResponse
     {
-
         $result = '';
-        //$result = $this->groupuserService->deleteGroupuserByGroup($request->get('groupid'));
-        $result = $this->groupuserService->deleteGroupuserByUser($request->get('userid'));
+        if ($request->request->has('userid')) {
+            //$result = $this->groupuserService->deleteGroupuserByGroup($request->get('groupid'));
+            $result = $this->groupuserService->deleteGroupuserByUser($request->get('userid'));
+        } else {
+            throw new \InvalidArgumentException('Bad request required parameters not found.');
+        }
 
-
-        if($result) {
+        if($result != '') {
             return new JsonResponse("Groupuser deleted", Response::HTTP_OK);
         } else {
             return new JsonResponse("Groupuser not deleted", Response::HTTP_BAD_REQUEST);

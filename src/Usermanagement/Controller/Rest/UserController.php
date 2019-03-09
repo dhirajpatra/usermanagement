@@ -33,12 +33,17 @@ class UserController extends AbstractFOSRestController
     {
         
         $result = '';
-        $user = new User();
-        $user->setUsername($request->get('username'));
-        $user->setStatus(1);
-        $result = $this->userService->saveUser($user);
+        if ($request->request->has('username')) {
+            $user = new User();
+            $user->setUsername($request->get('username'));
+            $user->setStatus(1);
+            $result = $this->userService->saveUser($user);
 
-        if($result) {
+        } else {
+            throw new \InvalidArgumentException('Bad request required parameters not found.');
+        }
+
+        if($result != '') {
             return new JsonResponse("User created", Response::HTTP_OK);
         } else {
             return new JsonResponse("User not created", Response::HTTP_BAD_REQUEST);
@@ -54,9 +59,14 @@ class UserController extends AbstractFOSRestController
      */
     public function delete(Request $request) : JsonResponse
     {
-        $result = $this->userService->deleteUser($request->get('userid'));
+        $result = '';
+        if ($request->request->has('userid')) {
+            $result = $this->userService->deleteUser($request->get('userid'));
+        } else {
+            throw new \InvalidArgumentException('Bad request required parameters not found.');
+        }
 
-        if($result) {
+        if($result != '') {
             return new JsonResponse("User deleted", Response::HTTP_OK);
         } else {
             return new JsonResponse("User not deleted", Response::HTTP_BAD_REQUEST);

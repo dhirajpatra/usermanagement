@@ -122,7 +122,7 @@ final class GroupuserRepository implements GroupuserRepositoryInterface
      */
     public function delete(int $userId): bool
     {
-        try {
+        try { 
             $result = $this->queryBuilder->delete(Groupuser::class, 'g')
                 ->where("g.userid = :user")->setParameter("user", $userId)
                 ->getQuery()
