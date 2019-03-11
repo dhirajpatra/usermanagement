@@ -22,8 +22,11 @@ But I have tried to create a perfect Symfony 4.2 and high quality structure for 
 ### How to install and run
 
 1. clone this repository
+
 2. cd to your clone directory
+
 3. Run: composer install
+
 4. You can use sql to create your database from documents folder. Also can use migration script to create database.
 [Datafixutre with test not beed completed due to lack of time]
 But better to Run following ORM commands [later we can create a app command for these commands as well]:
@@ -36,7 +39,9 @@ But better to Run following ORM commands [later we can create a app command for 
 
 `./bin/console doctrine:fixtures:load`
 [Ans: yes]
+
 5. Run symfony server by: `./bin/console server:run`
+
 6. Check as per the direction from above command output
 
 ### How to run tests
