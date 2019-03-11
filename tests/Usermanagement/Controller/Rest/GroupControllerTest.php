@@ -91,9 +91,6 @@ class GroupControllerTest extends PHPUnit\Framework\TestCase
      */
     public function testDeleteAction()
     {
-//        global $argv, $argc;
-//        $this->assertGreaterThan(2, $argc, 'No groupid passed');
-//        $this->id = $argv[2];
 
         $data = array(
             "groupid" => $this->id
