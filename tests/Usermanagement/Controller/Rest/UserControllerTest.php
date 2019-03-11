@@ -9,7 +9,7 @@ class UserControllerTest extends PHPUnit\Framework\TestCase
 
     private $http;
     private $userMock;
-    private $id = 2;  // kindly change the userid from your users db table
+    private $id = 2;  // as per ORM fixture values
     private $userName;
 
 
