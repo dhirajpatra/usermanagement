@@ -5,13 +5,15 @@ namespace App\DataFixtures;
 use App\Domain\Model\Group\Group;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Psr\Container\ContainerInterface;
 
 class GroupFixtures extends Fixture
 {
     public const FIXTURE_GROUP1 = "FixtureGroup1";
     public const FIXTURE_GROUP2 = "FixtureGroup2";
 
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
         $group = new Group();

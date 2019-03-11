@@ -10,6 +10,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 class GroupuserFixtures extends Fixture implements DependentFixtureInterface
 {
 
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
 
@@ -18,26 +21,30 @@ class GroupuserFixtures extends Fixture implements DependentFixtureInterface
         $group = $this->getReference(GroupFixtures::FIXTURE_GROUP1);
         $user = $this->getReference(UserFixtures::FIXTURE_USER1);
 
-        $groupUser->setUserid($user->getId());
-        $groupUser->setGroupid($group->getId());
+        // These needed to set by tests
+        //$groupUser->setUserid($user->getId());
+        //$groupUser->setGroupid($group->getId());
 
-        $manager->persist($groupUser);
+        //$manager->persist($groupUser);
 
-        $manager->flush();
+        //$manager->flush();
 
         $groupUser = new Groupuser();
 
         $group = $this->getReference(GroupFixtures::FIXTURE_GROUP2);
         $user = $this->getReference(UserFixtures::FIXTURE_USER2);
 
-        $groupUser->setUserid($user->getId());
-        $groupUser->setGroupid($group->getId());
+        //$groupUser->setUserid($user->getId());
+        //$groupUser->setGroupid($group->getId());
 
-        $manager->persist($groupUser);
+        //$manager->persist($groupUser);
 
-        $manager->flush();
+        //$manager->flush();
     }
 
+    /**
+     * @return array
+     */
     public function getDependencies()
     {
         return array(

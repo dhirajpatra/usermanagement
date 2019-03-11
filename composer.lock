@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e80c3ce06e34b967c25d01504988d640",
+    "content-hash": "cd090247d8eb10d1f8513fc81ec834ae",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -6301,16 +6301,16 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v4.2.3",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "ee4462581eb54bf34b746e4a5d522a4f21620160"
+                "reference": "61d85c5af2fc058014c7c89504c3944e73a086f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/ee4462581eb54bf34b746e4a5d522a4f21620160",
-                "reference": "ee4462581eb54bf34b746e4a5d522a4f21620160",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/61d85c5af2fc058014c7c89504c3944e73a086f0",
+                "reference": "61d85c5af2fc058014c7c89504c3944e73a086f0",
                 "shasum": ""
             },
             "require": {
@@ -6354,7 +6354,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T21:31:25+00:00"
+            "time": "2019-02-23T15:17:42+00:00"
         },
         {
             "name": "symfony/debug-bundle",
@@ -6511,16 +6511,16 @@
         },
         {
             "name": "symfony/maker-bundle",
-            "version": "v1.11.3",
+            "version": "v1.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/maker-bundle.git",
-                "reference": "08fabae78050d2fe71341d0edc3872bddf03482f"
+                "reference": "540996bfdcc14ca38dfe4865c020d965020ae821"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/08fabae78050d2fe71341d0edc3872bddf03482f",
-                "reference": "08fabae78050d2fe71341d0edc3872bddf03482f",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/540996bfdcc14ca38dfe4865c020d965020ae821",
+                "reference": "540996bfdcc14ca38dfe4865c020d965020ae821",
                 "shasum": ""
             },
             "require": {
@@ -6573,20 +6573,20 @@
                 "scaffold",
                 "scaffolding"
             ],
-            "time": "2019-01-17T02:02:27+00:00"
+            "time": "2019-03-01T20:45:16+00:00"
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v4.2.3",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "4ea7d80a7512ddc41d5af598978edcd395140edc"
+                "reference": "2cc651a38fcb831a405c14fcb76fcb00320e7ee8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/4ea7d80a7512ddc41d5af598978edcd395140edc",
-                "reference": "4ea7d80a7512ddc41d5af598978edcd395140edc",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/2cc651a38fcb831a405c14fcb76fcb00320e7ee8",
+                "reference": "2cc651a38fcb831a405c14fcb76fcb00320e7ee8",
                 "shasum": ""
             },
             "require": {
@@ -6596,7 +6596,6 @@
                 "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
             },
             "suggest": {
-                "ext-zip": "Zip support is required when using bin/simple-phpunit",
                 "symfony/debug": "For tracking deprecated interfaces usages at runtime with DebugClassLoader"
             },
             "bin": [
@@ -6639,7 +6638,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2019-01-24T21:39:51+00:00"
+            "time": "2019-02-18T06:49:49+00:00"
         },
         {
             "name": "symfony/polyfill-php72",

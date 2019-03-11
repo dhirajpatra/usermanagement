@@ -9,8 +9,8 @@ class GroupuserControllerTest extends PHPUnit\Framework\TestCase
 
     private $http;
     private $groupuserMock;
-    private $userid = 29;  // kindly change the userid from your users db table
-    private $groupid = 38;  // kindly change the userid from your users db table
+    private $userid = 1;  // as per ORM fixture values
+    private $groupid = 1;  // as per ORM fixture values
 
 
     public function setUp()
@@ -85,9 +85,6 @@ class GroupuserControllerTest extends PHPUnit\Framework\TestCase
      */
     public function testDeleteAction()
     {
-//        global $argv, $argc;
-//        $this->assertGreaterThan(2, $argc, 'No userid passed');
-//        $this->userid = $argv[2];
 
         $data = array(
             "userid" => $this->userid

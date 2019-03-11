@@ -27,27 +27,26 @@ But I have tried to create a perfect Symfony 4.2 and high quality structure for 
 4. Run symfony server by: ./bin/console server:run
 5. Check as per the direction from above command output
 6. You can use sql to create your database from documents folder. Also can use migration script to create database.
+[Datafixutre with test not beed completed due to lack of time]
+But better to Run following ORM commands [later we can create a app command for these commands as well]:
+
+`./bin/console doctrine:database:drop --force`
+
+`./bin/console doctrine:database:create`
+
+`./bin/console doctrine:schema:create`
+
+`./bin/console doctrine:fixtures:load`
+[Ans: yes]
 
 ### How to run tests
 
 1. You need to install lib curl & phpunit. While testing server should be running.
-2. Update userid and/or groupid with appropriate values from your DB [if no value then create from APIs]
-3. To tests all 3 files run following commands:
+2. Run above ORM commands in order
+3. Start server `./bin/console server:run`
+4. To tests all 3 files run following command:  `./bin/phpunit`
 
-[change this value as per your DB] eg. private $id = 37;
-
-`./bin/phpunit tests/Usermanagement/Controller/Rest/GroupControllerTest.php`
-
-[change this value as per your DB] eg. private $id = 37;
-
-`./bin/phpunit tests/Usermanagement/Controller/Rest/UserControllerTest.php`
-
-[change this value as per your DB] eg. private $userid = 29;
-private $groupid = 38;
-
-`./bin/phpunit tests/Usermanagement/Controller/Rest/GroupuserControllerTest.php`
-
-### REST API with payload
+### REST API with eg. payload
 Header: content-type: application/json
 
 1.	http://localhost:8000/api/group [create group]

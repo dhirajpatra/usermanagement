@@ -9,7 +9,7 @@ class GroupControllerTest extends PHPUnit\Framework\TestCase
 
     private $http;
     private $groupMock;
-    private $id = 37;  // kindly change the groupid from your groups db table
+    private $id = 2;  // kindly change the groupid from your groups db table
     private $groupName;
 
 
