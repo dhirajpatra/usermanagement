@@ -40,7 +40,7 @@ class GroupService
             $group = $this->groupRepository->findById($groupId);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException('Group with id '.$groupId.' does not exist!');
         }
 
         if (!$group) {
@@ -56,11 +56,12 @@ class GroupService
      */
     public function getGroupByName(string $groupname): Group
     {
+        
         try {
             $group = $this->groupRepository->findByName($groupname);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException('Group with name '.$groupname.' does not exist!');
         }
 
         if (!$group) {
@@ -80,7 +81,7 @@ class GroupService
             $group = $this->groupRepository->findById($groupId);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException('Group with id '.$groupId.' does not exist!');
         }
 
         if (!$group) {
@@ -92,7 +93,7 @@ class GroupService
             $groupuser = $this->groupRepository->getGroupuser($groupId);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException('Group with id '.$groupId.' does not exist!');
         }
 
         if (!empty($groupuser)) {
@@ -103,7 +104,7 @@ class GroupService
             $result = $this->groupRepository->delete($group);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException('Group with id '.$groupId.' does not exist!');
         }
 
         if (!$result) {
@@ -125,7 +126,7 @@ class GroupService
             $result = $this->groupRepository->findByName($group->getGroupname());
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException(' not saved!');
         }
         
         if (empty($result)) {

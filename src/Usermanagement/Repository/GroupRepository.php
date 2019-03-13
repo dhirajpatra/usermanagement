@@ -46,12 +46,8 @@ final class GroupRepository implements GroupRepositoryInterface
      */
     public function findById(int $groupId): ? Group
     {
-        try {
-            return $this->objectRepository->find($groupId);
+       return $this->objectRepository->find($groupId);
 
-        } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
-        }
     }
 
     /**
@@ -69,7 +65,7 @@ final class GroupRepository implements GroupRepositoryInterface
                 ->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return array();
         }
         
         return $result;
@@ -86,7 +82,7 @@ final class GroupRepository implements GroupRepositoryInterface
             $this->entityManager->flush();
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return false;
         }
 
         return true;
@@ -103,7 +99,7 @@ final class GroupRepository implements GroupRepositoryInterface
             $this->entityManager->flush();
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return false;
         }
 
         return true;
@@ -124,7 +120,7 @@ final class GroupRepository implements GroupRepositoryInterface
                 ->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return array();
         }
 
         return $result;

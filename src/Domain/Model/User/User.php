@@ -19,6 +19,7 @@ class User {
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      */
     private $id;
     /**
@@ -33,18 +34,7 @@ class User {
      */
     private $status;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Domain\Model\Groupuser\Groupuser", mappedBy="groups")
-     */
-    private $groupuser;
 
-    /**
-     * User constructor.
-     */
-    public function __construct()
-    {
-        $this->groupuser = new ArrayCollection();
-    }
 
     /**
      * @return int
@@ -101,10 +91,6 @@ class User {
     {
         $this->status = $status;
     }
-
-    /**
-     * @return Collection
-     */
 
 
 }

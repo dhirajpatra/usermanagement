@@ -38,7 +38,7 @@ class UserService
         try {
             $user = $this->userRepository->findById($userId);
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException('User with id '.$userId.' does not exist!');
         }
 
         if (!$user) {

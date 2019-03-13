@@ -68,7 +68,7 @@ class GroupControllerTest extends PHPUnit\Framework\TestCase
         $result = $this->groupMock
             ->expects($this->any())
             ->method('getGroupByName')
-            ->with($this->groupName)
+            ->with('banana')
             ->willReturn(Group::class);
         $this->assertInternalType('object', $result);
     }

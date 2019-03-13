@@ -47,12 +47,7 @@ final class UserRepository implements UserRepositoryInterface
      */
     public function findById(int $userId): ? User
     {
-        try{
-            return $this->objectRepository->find($userId);
-
-        } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
-        }
+        return $this->objectRepository->find($userId);
 
     }
 
@@ -70,7 +65,7 @@ final class UserRepository implements UserRepositoryInterface
                 )->getQuery()
                 ->getResult(AbstractQuery::HYDRATE_ARRAY);
         }  catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return array();
         }
 
         return $result;
@@ -86,7 +81,7 @@ final class UserRepository implements UserRepositoryInterface
             $this->entityManager->persist($user);
             $this->entityManager->flush();
         }  catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return false;
         }
 
         return true;
@@ -102,7 +97,7 @@ final class UserRepository implements UserRepositoryInterface
             $this->entityManager->remove($user);
             $this->entityManager->flush();
         }  catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return false;
         }
 
         return true;
@@ -122,7 +117,7 @@ final class UserRepository implements UserRepositoryInterface
                 ->getQuery()
                 ->getResult(AbstractQuery::HYDRATE_ARRAY);
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return array();
         }
 
         return $result;
@@ -140,7 +135,7 @@ final class UserRepository implements UserRepositoryInterface
                 ->getQuery()
                 ->getResult(AbstractQuery::HYDRATE_ARRAY);
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return false;
         }
 
         if($result){

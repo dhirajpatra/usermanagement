@@ -21,14 +21,16 @@ class Groupuser {
     /**
      * @var int
      *
-     * @ORM\Column(name="groupid", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Domain\Model\Group\Group", inversedBy="groupusers")
+     * @ORM\JoinColumn(name="groupid", referencedColumnName="id")
      */
     private $groupid;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="userid", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Domain\Model\User\User", inversedBy="groupusers")
+     * @ORM\JoinColumn(name="userid", referencedColumnName="id")
      */
     private $userid;
 

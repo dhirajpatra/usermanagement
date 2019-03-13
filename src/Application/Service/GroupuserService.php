@@ -49,7 +49,7 @@ class GroupuserService
             $groupuser = $this->groupuserRepository->findByGroupId($groupId);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException('Groupuser with groupid '.$groupId.' does not exist!');
         }
 
         if (!$groupuser) {
@@ -69,7 +69,7 @@ class GroupuserService
             $groupuser = $this->groupuserRepository->findByUserId($userId);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException('Groupuser with userid '.$userId.' does not exist!');
         }
 
         if (!$groupuser) {
@@ -90,7 +90,7 @@ class GroupuserService
             $groupuser = $this->groupuserRepository->findByGroupId($groupId);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException('Groupuser not deleted!');
         }
 
         if (empty($groupuser)) {
@@ -113,7 +113,7 @@ class GroupuserService
             $result = $this->groupuserRepository->delete($userId);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            throw new EntityNotFoundException('Groupuser not deleted!');
         }
 
         if(!$result) {
@@ -135,7 +135,7 @@ class GroupuserService
         // checking if group and user exist
         $user = $this->userRepository->findById($userId);
         $group = $this->groupRepository->findById($groupId);
-        
+
         if($group != NULL && $user != NULL) {
             $result = $this->groupuserRepository->duplicateCheck($userId, $groupId);
 

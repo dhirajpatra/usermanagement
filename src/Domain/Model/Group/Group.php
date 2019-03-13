@@ -17,6 +17,7 @@ class Group {
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      */
     private $id;
     /**
@@ -30,11 +31,6 @@ class Group {
      * @Assert\NotBlank()
      */
     private $status;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Domain\Model\Groupuser\Groupuser", mappedBy="groups")
-     */
-    private $groupuser;
 
     /**
      * Group constructor.
@@ -100,35 +96,6 @@ class Group {
         $this->status = $status;
     }
 
-    /**
-     * @return Collection
-     */
-    public function getGroupuser(): Collection
-    {
-        return $this->groupuser;
-    }
-
-//    public function addGroupuser(Groupuser $groupuser): self
-//    {
-//        if (!$this->groupuser->contains($groupuser)) {
-//            $this->groupuser[] = $groupuser;
-//            $groupuser->setGroups($this);
-//        }
-//
-//        return $this;
-//    }
-//
-//    public function removeGroupuser(Groupuser $groupuser): self
-//    {
-//        if ($this->groupuser->contains($groupuser)) {
-//            $this->groupuser->removeElement($groupuser);
-//            // set the owning side to null (unless already changed)
-//            if ($groupuser->getGroups() === $this) {
-//                $groupuser->setGroups(null);
-//            }
-//        }
-//
-//        return $this;
-//    }
+    
 
 }

@@ -55,7 +55,7 @@ final class GroupuserRepository implements GroupuserRepositoryInterface
                 ->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return array();
         }
 
         return $result;
@@ -75,7 +75,7 @@ final class GroupuserRepository implements GroupuserRepositoryInterface
                 ->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return array();
         }
 
         return $result;
@@ -89,7 +89,7 @@ final class GroupuserRepository implements GroupuserRepositoryInterface
     public function duplicateCheck(int $userId, int $groupId): array
     {
 
-        $result = $this->queryBuilder->select('g.id, g.groupid, g.userid')
+        $result = $this->queryBuilder->select('g')
             ->from(Groupuser::class, 'g')
             ->where("g.userid = :user")->setParameter("user", $userId)
             ->andWhere("g.groupid = :group")->setParameter("group", $groupId)
@@ -110,7 +110,7 @@ final class GroupuserRepository implements GroupuserRepositoryInterface
             $this->entityManager->flush();
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return false;
         }
 
         return true;
@@ -129,7 +129,7 @@ final class GroupuserRepository implements GroupuserRepositoryInterface
                 ->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         } catch(\Doctrine\ORM\ORMException $e) {
-            return $e->getMessage();
+            return false;
         }
 
         if($result){
