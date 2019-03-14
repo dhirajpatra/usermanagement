@@ -31,7 +31,6 @@ class GroupuserController extends AbstractFOSRestController
      */
     public function add(Request $request) : JsonResponse
     {
-
         $result = '';
         if ($request->request->has('userid') && $request->request->has('groupid')) {
             $groupuser = new Groupuser();

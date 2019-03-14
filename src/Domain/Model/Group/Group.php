@@ -33,14 +33,6 @@ class Group {
     private $status;
 
     /**
-     * Group constructor.
-     */
-    public function __construct()
-    {
-        $this->groupuser = new ArrayCollection();
-    }
-
-    /**
      * @return int
      */
     public function getId()

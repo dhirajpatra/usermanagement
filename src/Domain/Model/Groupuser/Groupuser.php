@@ -20,7 +20,7 @@ class Groupuser {
     private $id;
     /**
      * @var int
-     *
+     * @ORM\Column(name="groupid", type="integer", nullable=false, options={"comment"="  "})
      * @ORM\ManyToOne(targetEntity="App\Domain\Model\Group\Group", inversedBy="groupusers")
      * @ORM\JoinColumn(name="groupid", referencedColumnName="id")
      */
@@ -28,7 +28,7 @@ class Groupuser {
 
     /**
      * @var int
-     *
+     * @ORM\Column(name="userid", type="integer", nullable=false, options={"comment"="  "})
      * @ORM\ManyToOne(targetEntity="App\Domain\Model\User\User", inversedBy="groupusers")
      * @ORM\JoinColumn(name="userid", referencedColumnName="id")
      */

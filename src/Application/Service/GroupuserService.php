@@ -143,7 +143,7 @@ class GroupuserService
                 try {
                     $result = $this->groupuserRepository->save($groupuser);
 
-                } catch(\Exception $e) {
+                } catch(\Exception $e) { echo $e->getMessage(); exit;
                     throw new BadCredentialsException('Groupuser not save');
                 }
 

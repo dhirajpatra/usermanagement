@@ -34,8 +34,6 @@ class User {
      */
     private $status;
 
-
-
     /**
      * @return int
      */
